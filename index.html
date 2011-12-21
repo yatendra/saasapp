@@ -3,25 +3,25 @@
 <head>
   <meta charset='utf-8'>
 
-  <title>yatendra/saasapp @ GitHub</title>
+  <title>yatendra/SaasApp @ GitHub</title>
 
   <style type="text/css">
     body {
       margin-top: 1.0em;
-      background-color: #3c9b05;
+      background-color: #fff;
       font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
+      color: #000000;
     }
     #container {
       margin: 0 auto;
       width: 700px;
     }
-    h1 { font-size: 3.8em; color: #c364fa; margin-bottom: 3px; }
+    h1 { font-size: 3.8em; color: #21007F; margin-bottom: 3px; }
     h1 .small { font-size: 0.4em; }
     h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #c364fa; }
-    h3 { text-align: center; color: #c364fa; }
-    a { color: #c364fa; }
+    h2 { font-size: 1.5em; color: #21007F; }
+    h3 { text-align: center; color: #21007F; }
+    a { color: #21007F; }
     .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
     .download { float: right; }
     pre { background: #000; color: #fff; padding: 15px;}
@@ -46,23 +46,30 @@
       <span class="small">by <a href="https://github.com/yatendra">yatendra</a></span></h1>
 
     <div class="description">
-      SaasApp is a starter kit for creating a multi-tenant software as a service (SAAS) application with ASP.Net, JQuery and MySQL using shared database architecture. It uses Twitter's bootstrap framework for layout.
+      SaasApp is a starter kit for creating a software as a service (SAAS) application using ASP.Net, JQuery and MySQL. It uses Twitter's bootstrap framework for layout.
     </div>
 
-    
 
-    
+      <p>SaasApp is a starter kit for creating a multi-tenant software as a service (SAAS) application using ASP.Net, JQuery and MySQL using shared database architecture. It uses Twitter's bootstrap framework for layout.</p>
 
-    
+      <h2>What does it do</h2>
 
-    
+	  <ul>
+	  <li>Creates a basic site for the app with a home page and page that displays various plans.</li>
+	  <li>User can then select a plan and register an account with selected plan specifying administrator password among other details.</li>
+	  <li>Each account say abccorp gets a sub-domain abccorp.[appdomain]</li>
+	  <li>[appdomain] can be a top level domain like myapp.com or localhost url (like localhost, localhost:3203 etc) or a subdomain like app.mydomain.com</li>
+	  <li>administrator can then login using specified password and create more users that can also access the same app at abccorp.[appdomain] and their access is limited to abccorp account only</li>
+	  <li>Administrator can manage users (list, add, edit and delete).</li>
+	  </ul>
 
-    
+
+
+
+	  <h2>Configuration</h2>
+	  <p><a href="https://github.com/yatendra/saasapp/wiki/Configuration">Configuration details</a></p>
       <h2>Authors</h2>
-      <p>Yatendra Khandelwal (yatendra@gmail.com)<br/>      </p>
-    
-
-    
+      <p>Yatendra Khandelwal (yatendra at gmail.com)<br/>      </p>
 
     <h2>Download</h2>
     <p>
@@ -72,11 +79,11 @@
     </p>
     <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
       by running:
-      <pre>$ git clone git://github.com/yatendra/saasapp</pre>
+      <pre>$ git clone git://github.com/yatendra/SaasApp</pre>
     </p>
 
     <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/yatendra/saasapp">yatendra/saasapp</a>
+      get the source code on GitHub : <a href="https://github.com/yatendra/saasapp">github.com/yatendra/saasapp</a>
     </div>
 
   </div>
