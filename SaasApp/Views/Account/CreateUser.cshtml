@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Create User";
+    Layout = "~/Views/Shared/_LayoutApp.cshtml";
+    string errorMessage = ViewBag.ErrorMessage;
+    string username = ViewBag.Username;
+    string password = ViewBag.Password;
+    string email = ViewBag.Email;
+}
+<div id="page">
+    <div id="head">
+        <ul class="pills1">
+            <li><a href="/Account/ListUsers">List</a></li>
+            <li class="active"><a href="/Account/CreateUser">Add User</a></li>
+        </ul>
+        <h1>Create User</h1>
+    </div>
+    <div class="row">
+        <div class="span11">
+            <form action="/Account/CreateUser" method="post" id="settings">
+                <fieldset>
+                    <div id="errorMessage" class="clearfix">@errorMessage</div>
+                    <div class="clearfix">
+                        <label for="username" class="labelleft">Username</label>
+                        <div class="input">
+                            <input class="medium" id="username" name="username" size="16" type="text" value="@username"/>
+                            <label class="req">*</label>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="password" class="labelleft">Password</label>
+                        <div class="input">
+                            <input class="medium" id="password" name="password" size="16" type="password" value="@password"/>
+                            <label class="req">*</label>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="password2" class="labelleft">Re-type password</label>
+                        <div class="input">
+                            <input class="medium" id="password2" name="password2" size="16" type="password" value="@password"/>
+                            <label class="req">*</label>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="email" class="labelleft">Email</label>
+                        <div class="input">
+                            <input class="medium" id="email" name="email" size="16" type="text" value="@email" />
+                            <label class="req">*</label>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="email2" class="labelleft">Re-type email</label>
+                        <div class="input">
+                            <input class="medium" id="email2" name="email2" size="16" type="text" value="@email" />
+                            <label class="req">*</label>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="clearfix">
+                        <label for="isAdmin" class="labelleft">Is Administrator</label>
+                        <div class="input">
+                            <input id="isAdmin" name="isAdmin" type="checkbox"/>
+                        </div>
+                    </div><!-- /clearfix -->
+                    <div class="actions">
+                        <input type="submit" class="btn primary" value="Save changes"/>&nbsp;<button type="reset" class="btn">Clear</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+@section Head{
+<script type="text/javascript">
+    $.validator.addMethod(
+        "regex",
+        function (value, element, regexp) {
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        },
+        "only alphabets, numbers, - and . allowed"
+    );
+    $(document).ready(function () {
+        $("#settings").validate({
+            rules: {
+                username: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 32,
+                    regex: "^[a-zA-Z0-9._-]+$"
+                },
+                password: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 32
+                },
+                password2: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 32,
+                    equalTo: "#password"
+                },
+                email: {
+                    required: true,
+                    maxlength: 64,
+                    email: true
+                },
+                email2: {
+                    required: true,
+                    maxlength: 64,
+                    email: true,
+                    equalTo: "#email"
+                }
+            },
+            messages: {
+                username: {
+                    required: "required",
+                    minlength: "min 6 characters",
+                    maxlength: "max 32 characters"
+                },
+                password: {
+                    required: "required",
+                    minlength: "min 6 characters",
+                    maxlength: "max 32 characters"
+                },
+                password2: {
+                    required: "required",
+                    minlength: "min 6 characters",
+                    equalTo: "re-type above password",
+                    maxlength: "max 32 characters"
+                },
+                email: {
+                    required: "required",
+                    email: "please enter valid email",
+                    maxlength: "max 64 characters"
+                },
+                email2: {
+                    required: "required",
+                    email: "please enter valid email",
+                    equalTo: "re-type above email",
+                    maxlength: "max 64 characters"
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent());
+            }
+        });
+        $("input#username").focus();
+    });
+</script>
+}

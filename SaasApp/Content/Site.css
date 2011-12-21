@@ -1,0 +1,36 @@
+﻿.labelleft
+{
+    float:left;
+}
+label.error
+{
+    color:#f00;
+}
+label.req
+{
+    color:#f00;
+    margin-left:10px;
+}
+div#errorMessage
+{
+    width:100%;
+    text-align:center;
+    padding:5px 0 0 0;
+    color:#f00;
+}
+div#page
+{
+    display:inline;
+}
+div#head h1
+{
+    margin-left:10px;
+}
+table.grid
+{
+    margin-top:10px;
+}
+.right
+{
+    text-align:right;
+}

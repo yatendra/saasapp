@@ -1,0 +1,12 @@
+D:\temp\SaasApp\SaasApp\bin\SaasApp.dll
+D:\temp\SaasApp\SaasApp\bin\SaasApp.pdb
+D:\temp\SaasApp\SaasApp\obj\Debug\ResolveAssemblyReference.cache
+D:\temp\SaasApp\SaasApp\obj\Debug\SaasApp.dll
+D:\temp\SaasApp\SaasApp\obj\Debug\SaasApp.pdb
+D:\temp\SaasApp\SaasApp\bin\log4net.xml
+D:\temp\Github\SaasApp\SaasApp\bin\SaasApp.dll
+D:\temp\Github\SaasApp\SaasApp\bin\SaasApp.pdb
+D:\temp\Github\SaasApp\SaasApp\bin\log4net.xml
+D:\temp\Github\SaasApp\SaasApp\obj\Debug\ResolveAssemblyReference.cache
+D:\temp\Github\SaasApp\SaasApp\obj\Debug\SaasApp.dll
+D:\temp\Github\SaasApp\SaasApp\obj\Debug\SaasApp.pdb

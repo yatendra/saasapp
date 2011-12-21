@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Account Created";
+    string account = ViewBag.Account;
+    string baseUrl = HttpContext.Current.Application["BaseUrl"].ToString();
+    string url = "http://" + account + "." + baseUrl;
+}
+<div class="content">
+    <div class="page-header">
+        <h1>Account Created</h1>
+    </div>
+    <div class="row">
+        <div class="span16">
+            <h3>You can access this account by going to <a href="@url">@url</a> and login as administrator.</h3>
+        </div>
+    </div>
+</div>

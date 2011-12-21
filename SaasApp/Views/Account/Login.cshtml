@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Login";
+    string message = ViewBag.ErrorMessage;
+    string username = ViewBag.Username;
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="row">
+    <div class="span8">
+        <h2>Login</h2> 
+        <form action="/Account/Login" method="post" id="login">
+            <fieldset>
+                <div id="errorMessage"><span>@message</span></div>
+                <div class="clearfix">
+                    <label for="username" class="labelleft">Username</label>
+                    <div class="input">
+                        <input class="medium" id="username" name="username" size="16" type="text" value="@username" />
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="password" class="labelleft">Password</label>
+                    <div class="input">
+                        <input class="medium" id="password" name="password" size="16" type="password" />
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <div class="input">
+                        <input type="checkbox" name="rememberMe" id="rememberMe"/>
+                        <span>Remember Me</span>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="actions">
+                    <input type="submit" class="btn primary" value="Login"/>&nbsp;<button type="reset" class="btn">Clear</button>
+                </div>
+                <div class="right">
+                    <a href="/Account/ForgotPassword">Forgot password?</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+@section Head{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#login").validate({
+            rules: {
+                username: {
+                    required: true,
+                    maxlength: 32
+                },
+                password: {
+                    required: true,
+                    maxlength: 32
+                }
+            },
+            messages: {
+                username: {
+                    required: "required",
+                    maxlength: "Max 32 characters"
+                },
+                password: {
+                    required: "required",
+                    maxlength: "Max 32 characters"
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent());
+            }
+        });
+        $('input#username').focus();
+    });
+</script>
+}

@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Register";
+    int planType = (int)ViewData.Model;
+    string baseUrl = HttpContext.Current.Application["BaseUrl"].ToString();
+    string errorMessage = ViewBag.ErrorMessage;
+    string friendlyName = ViewBag.FriendlyName;
+    string adminEmail = ViewBag.AdminEmail;
+}
+<div class="page-header">
+    <h1>Create Account<small>&nbsp;&nbsp;&nbsp;You will access this account by going to http://[your account].@baseUrl</small></h1>
+</div>
+<div class="row">
+    <div class="span10">
+        <form action="/Home/SelectAPlan" method="post" id="signup">
+            <fieldset>
+                <div id="errorMessage" class="clearfix">@errorMessage</div>
+                <div class="clearfix">
+                    <label for="accountName" class="labelleft">Account name</label>
+                    <div class="input">
+                        <input class="medium" id="accountName" name="accountName" size="16" type="text" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="friendlyName" class="labelleft">Friendly name</label>
+                    <div class="input">
+                        <input class="medium" id="friendlyName" name="friendlyName" size="16" type="text" value="@friendlyName" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="adminPassword" class="labelleft">Administrator password</label>
+                    <div class="input">
+                        <input class="medium" id="adminPassword" name="adminPassword" size="16" type="password" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="adminPassword2" class="labelleft">Re-type administrator password</label>
+                    <div class="input">
+                        <input class="medium" id="adminPassword2" name="adminPassword2" size="16" type="password" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="adminEmail" class="labelleft">Administrator email</label>
+                    <div class="input">
+                        <input class="medium" id="adminEmail" name="adminEmail" size="16" type="text" value="@adminEmail" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div class="clearfix">
+                    <label for="adminEmail2" class="labelleft">Re-type administrator email</label>
+                    <div class="input">
+                        <input class="medium" id="adminEmail2" name="adminEmail2" size="16" type="text" value="@adminEmail" />
+                        <label class="req">*</label>
+                    </div>
+                </div><!-- /clearfix -->
+                <div>
+                    <input id="planType" name="planType" type="hidden" value="@planType"/>
+                </div>
+                <div class="actions">
+                    <input type="submit" class="btn primary" value="Save changes"/>&nbsp;<button type="reset" class="btn">Clear</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="span4">
+    <h3>Selected plan type @planType</h3>
+    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    </div>
+</div>
+@section Head{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#signup").validate({
+            rules: {
+                accountName: {
+                    required: true,
+                    maxlength: 32
+                },
+                friendlyName: {
+                    required: true,
+                    maxlength: 32
+                },
+                adminPassword: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 32
+                },
+                adminPassword2: {
+                    required: true,
+                    minlength: 6,
+                    maxlength: 32,
+                    equalTo: "#adminPassword"
+                },
+                adminEmail: {
+                    required: true,
+                    maxlength: 64,
+                    email: true
+                },
+                adminEmail2: {
+                    required: true,
+                    maxlength: 64,
+                    email: true,
+                    equalTo: "#adminEmail"
+                }
+            },
+            messages: {
+                accountName: {
+                    required: "required"
+                },
+                friendlyName: {
+                    required: "required"
+                },
+                adminPassword: {
+                    required: "required",
+                    minlength: "min 6 characters"
+                },
+                adminPassword2: {
+                    required: "required",
+                    minlength: "min 6 characters",
+                    equalTo: "re-type above password"
+                },
+                adminEmail: {
+                    required: "required",
+                    email: "please enter valid email"
+                },
+                adminEmail2: {
+                    required: "required",
+                    email: "please enter valid email",
+                    equalTo: "re-type above email"
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.appendTo(element.parent());
+            }
+        });
+        $("input#accountName").focus();
+    });
+</script>
+}

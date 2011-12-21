@@ -1,0 +1,93 @@
+﻿@{
+    string appName = HttpContext.Current.Application["AppName"].ToString();
+    string copyrightText = HttpContext.Current.Application["CopyrightText"].ToString();
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>@appName-@ViewBag.Title</title>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le styles -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+      }
+    </style><link href="/Content/docs.css" rel="stylesheet"/>
+    <link href="/Content/prettify.css" rel="stylesheet"/>
+    <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/Content/favicon.ico" />
+    <!-- Le javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="http://autobahn.tablesorter.com/jquery.tablesorter.min.js"></script>
+    <script src="/Scripts/prettify.js"></script>
+    <script>        $(function () { prettyPrint() })</script>
+    <script src="/Scripts/bootstrap-dropdown.js"></script>
+    <script src="/Scripts/bootstrap-twipsy.js"></script>
+    <script src="/Scripts/bootstrap-scrollspy.js"></script>
+    <script src="/Scripts/bootstrap-modal.js"></script>
+    <script src="/Scripts/application.js"></script>
+    <script src="/Scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    @RenderSection("Head", false)
+</head>
+
+<body>
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="/">@appName</a>
+          <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Link1</a></li>
+            <li><a href="#">Link2</a></li>
+            @if (SaasApp.Utility.UtilityHelper.GetIsUserAdmin(Session))
+            {
+            <li><a href="/Account/ListUsers">Administration</a></li>
+            }
+          </ul>
+          <p class="pull-right">Logged in as @HttpContext.Current.User.Identity.Name | <a href="/account/settings">Settings</a> | <a href="/account/logout">Logout</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="sidebar">
+        <div class="well">
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+          <h5>Sidebar</h5>
+          <ul>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+@RenderBody()        
+        <footer>
+          <p>&copy; @copyrightText</p>
+        </footer>
+      </div>
+    </div>
+</body>
+</html>
