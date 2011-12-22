@@ -53,7 +53,6 @@ namespace SaasApp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(username, rememberMe.HasValue ? rememberMe.Value : false);
                 Session[ConstantsUtil.SessionUser] = user;
-                Session[ConstantsUtil.SessionRoles] = RoleBL.GetRolesForUser(username, subdomain);
                 return RedirectToAction("Index", "App");
             }
             else
