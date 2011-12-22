@@ -19,8 +19,8 @@ namespace SaasApp.Utility
         }
         public static bool GetIsUserAdmin(HttpSessionStateBase session)
         {
-            string[] roles = (string[])session[ConstantsUtil.SessionRoles];
-            return roles.Contains(ConstantsUtil.RoleAdmin);
+            DataModel.User user = (DataModel.User)session[ConstantsUtil.SessionUser];
+            return user.IsAdmin;
         }
         public static string GetUsername(HttpSessionStateBase session)
         {
