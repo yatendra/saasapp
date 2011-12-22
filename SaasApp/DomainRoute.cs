@@ -30,9 +30,6 @@ namespace System.Web.Routing
                                 case "index":
                                     routeData.Values.Add("action", "Index");
                                     break;
-                                case "about":
-                                    routeData.Values.Add("action", "About");
-                                    break;
                                 default:
                                     routeData.Values.Add("action", "Index");
                                     break;
@@ -143,9 +140,6 @@ namespace System.Web.Routing
                                     {
                                         routeData.Values.Add("accountName", "");
                                     }
-                                    break;
-                                case "about":
-                                    routeData.Values.Add("action", "About");
                                     break;
                                 default:
                                     routeData.Values.Add("action", "Index");

@@ -54,7 +54,7 @@ namespace SaasApp.BusinessLayer
             using (MySqlConnection sqlConnection = new MySqlConnection(UtilityHelper.GetConnectionString()))
             {
                 sqlConnection.Open();
-                string salt = sqlConnection.Query<string>("select Salt from user where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
+                string salt = sqlConnection.Query<string>("select Salt from User where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
                 if (string.IsNullOrEmpty(salt))
                 {
                     salt = Guid.NewGuid().ToString();
@@ -69,7 +69,7 @@ namespace SaasApp.BusinessLayer
             using (MySqlConnection sqlConnection = new MySqlConnection(UtilityHelper.GetConnectionString()))
             {
                 sqlConnection.Open();
-                string salt = sqlConnection.Query<string>("select Salt from user where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
+                string salt = sqlConnection.Query<string>("select Salt from User where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
                 if (string.IsNullOrEmpty(salt))
                 {
                     salt = Guid.NewGuid().ToString();
@@ -82,7 +82,7 @@ namespace SaasApp.BusinessLayer
             using (MySqlConnection sqlConnection = new MySqlConnection(UtilityHelper.GetConnectionString()))
             {
                 sqlConnection.Open();
-                string salt = sqlConnection.Query<string>("select Salt from user where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
+                string salt = sqlConnection.Query<string>("select Salt from User where Username=@Username and Account=@Account", new { Username = username, Account = account }).FirstOrDefault();
                 if (string.IsNullOrEmpty(salt))
                 {
                     salt = Guid.NewGuid().ToString();

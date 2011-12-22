@@ -16,11 +16,6 @@ namespace SaasApp.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            return View();
-        }
-
         public ActionResult Plans()
         {
             return View();
